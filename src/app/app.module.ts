@@ -13,6 +13,14 @@ import { ROUTES } from './app.routes';
 // App is our top level component
 import { App } from './app.component';
 import { MdModule } from './md.module';
+
+/**
+ * Additional Meterial2 providers
+ * @todo: implement provider dispenser in MdModule barrel
+ */
+import { MdIconRegistry } from '@angular2-material/icon';
+import { OVERLAY_PROVIDERS } from '@angular2-material/core';
+
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState } from './app.service';
 import { Home } from './home';
@@ -49,7 +57,9 @@ const APP_PROVIDERS = [
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    MdIconRegistry,
+    OVERLAY_PROVIDERS
   ]
 })
 export class AppModule {
